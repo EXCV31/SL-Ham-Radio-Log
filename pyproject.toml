@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sl-ham-radio-log"
+version = "0.1.0"
+description = "SuckLess Ham Radio Log"
+authors = ["Filip Laszczak"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "sl_ham_radio_log"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
