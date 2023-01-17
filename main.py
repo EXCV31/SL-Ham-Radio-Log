@@ -6,7 +6,8 @@ from helpers.get_today_or_yesterday import get_time
 from helpers.exit_handler import exit_program
 from helpers.options import show_options
 from modules.qso import register_qso
-from modules.stats import show_stats
+from modules.top import top_10_connections
+from modules.top_callsign import show_top_callsign
 from helpers.greet_user import welcome
 
 logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
@@ -30,11 +31,9 @@ if __name__ == "__main__":
         if choose == str(1):
             register_qso()
         if choose == str(2):
-            _, _, day = get_time()
-            pass
+            top_10_connections()
         if choose == str(3):
-            _, yesterday, _ = get_time()
-            pass
+            show_top_callsign()
         if choose == str(4):
             pass
         if choose == str(5):
@@ -47,3 +46,6 @@ if __name__ == "__main__":
             exit_program(0)
         if choose == "?":
             info = False
+
+
+# WYMAGA REFAKTORYZACJI + DODANIE LOGGERA, DZIAŁA
