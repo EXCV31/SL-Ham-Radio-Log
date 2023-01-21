@@ -8,6 +8,8 @@ from helpers.options import show_options
 from modules.qso import register_qso
 from modules.top import top_10_connections
 from modules.top_callsign import show_top_callsign
+from modules.name_changer import change_or_add_name
+from modules.stats import show_stats
 from helpers.greet_user import welcome
 
 logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
@@ -35,9 +37,9 @@ if __name__ == "__main__":
         if choose == str(3):
             show_top_callsign()
         if choose == str(4):
-            pass
+            change_or_add_name()
         if choose == str(5):
-            pass
+            show_stats()
         if choose == str(6):
             pass
         if choose == str(7):

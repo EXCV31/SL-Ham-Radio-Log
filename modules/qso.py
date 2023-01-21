@@ -9,6 +9,8 @@ from helpers.colors import get_color
 from config.setup_config import frame_title
 from helpers.get_today_or_yesterday import get_time
 from helpers.bands import match_band
+from helpers.modulations import match_modulation
+
 console = Console()
 logging.basicConfig(filename='SL_Ham_Radio_Log.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
                                                                                                    'levelname)s: %('
@@ -44,7 +46,7 @@ def register_qso():
         logging.info(f"Wybrano znak: {qso_callsign}")
 
         console.print(Panel(Text("\n "
-                                "1: 160m   1.810 MHz - 2.000 MHz\n"
+                                "1. 160m   1.810 MHz - 2.000 MHz\n"
                                 "2. 80m   3.500 MHz - 3.800 MHz\n"
                                 "3. 40m   7.000 MHz - 7.200 MHz\n"
                                 "4. 30m   10.100 MHz - 10.150 MHz\n"
@@ -60,10 +62,26 @@ def register_qso():
         band = input("\nWybierz numer pasma, lub wpisz własne: ")
 
         band = match_band(band)
+
+        console.print(Panel(Text("\n "
+                        "1. FM\n"
+                        "2. CW\n"
+                        "3. RTTY\n"
+                        "4. FT4\n"
+                        "5. FT8\n"
+                        "6. SSB/LSB/USB\n"
+                        "7. DMR\n"
+                        "8. FUSION\n"
+                        "9. D-STAR\n", justify="center", style="white"), style=get_color("light_blue")
+                    , title=frame_title))
+        modulation = input("\nWybierz numer modulacji, lub wpisz własną: ")
+
+        modulation = match_modulation(modulation)
+
         today = get_time()
 
         # Insert user work to database.
-        cursor.execute("INSERT INTO QSO (DATA, ZNAK, PASMO) VALUES (?,?,?)", (today, qso_callsign, band))
+        cursor.execute("INSERT INTO QSO (DATA, ZNAK, PASMO, MODULACJA) VALUES (?,?,?,?)", (today, qso_callsign, band, modulation))
         conn.commit()
 
         logging.info("Umieszczono przepracowany czas w bazie danych.")

@@ -25,8 +25,9 @@ def show_options():
                              "\n1. Zarejestruj QSO"
                              "\n2. Sprawdź najczęstsze łączności - TOP 10"
                              "\n3. Sprawdź ilość QSO z znakiem"
-                             "\n4. Statystyki"
-                             "\n5. O programie"
-                             "\n6. Wyjście\n", justify="center", style="white"), style=get_color("light_blue"),
+                             "\n4. Zmień lub dodaj imię dla znaku"
+                             "\n5. Statystyki"
+                             "\n6. O programie"
+                             "\n7. Wyjście\n", justify="center", style="white"), style=get_color("light_blue"),
                         title=frame_title))
     logging.info("Pokazano listę opcji do wyboru.")
