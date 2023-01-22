@@ -8,5 +8,11 @@ SuckLess ham radio logger.
 `https://github.com/EXCV31/SL-Ham-Radio-Log.git`
 * Przejdź do katalogu z programem:
 `cd SL-Ham-Radio-Log`
+* W config/config.ini wypełnij pola, np tak:
+```[RADIO]
+OPERATOR=Filip Laszczak
+CALLSIGN=SP9EX
+```
+
 * Uruchom program:
 `poetry shell; python3 main.py`
