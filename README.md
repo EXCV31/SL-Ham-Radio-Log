@@ -2,8 +2,6 @@
 SuckLess ham radio logger.
 
 ## Instalacja - system Linux/MacOS
-* Jeżeli nie posiadasz, zaopatrz się w Poetry (coś jak pip, tylko lepsze):
-`https://python-poetry.org/`
 * Sklonuj repozytorium:
 `https://github.com/EXCV31/SL-Ham-Radio-Log.git`
 * Przejdź do katalogu z programem:
@@ -13,6 +11,7 @@ SuckLess ham radio logger.
 OPERATOR=Filip Laszczak
 CALLSIGN=SP9EX
 ```
-
+* Zainstaluj zależności:
+`pip install -r requirements.txt`
 * Uruchom program:
-`poetry shell; python3 main.py`
+`python3 main.py`
