@@ -1,5 +1,6 @@
 def match_band(band):
     """
+    Function is called when there's need for band, used only in modules/qso.py to get correct band into database.
 
     Args:
         band: number of band from list showed to user.

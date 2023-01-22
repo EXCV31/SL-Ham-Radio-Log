@@ -19,4 +19,4 @@ def match_modulation(modulation):
         case "9":
             return "D-STAR"
         case _:
-            return band
+            return modulation

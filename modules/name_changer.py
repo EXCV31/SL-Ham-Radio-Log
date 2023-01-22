@@ -9,7 +9,13 @@ from config.setup_config import frame_title
 from helpers.error_handler import display_error
 from helpers.clear_handler import clear_console
 from helpers.colors import get_color
+
 console = Console()
+
+logging.basicConfig(filename='SL_Ham_Radio_Log.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                                   'levelname)s: %('
+                                                                                                   'message)s')
+
 
 def change_or_add_name():
     clear_console()
@@ -19,24 +25,29 @@ def change_or_add_name():
     if qso_callsign == "":
         return
 
-    # sprawdzenie czy znak istnieje w bazie danych
+    # Check if callsign exists in database
     cursor.execute("SELECT ZNAK FROM IMIONA WHERE ZNAK=?", (qso_callsign,))
     result = cursor.fetchone()
 
     if result:
 
-        # znak istnieje w bazie
+        # Callsign exist in database.
         new_name = input("Znak istnieje w bazie. Podaj nowe imię: ")
+
         if new_name == "":
             display_error("Imię nie może być puste!")
+
         cursor.execute("UPDATE IMIONA SET IMIE=? WHERE ZNAK=?", (new_name, qso_callsign))
         conn.commit()
-        print("Imię zostało zmienione.")
+        logging.info(f"Zmieniono imię w bazie dla znaku {qso_callsign}")
     else:
-        # znak nie istnieje w bazie
+        # Callsign doesn't exist in database.
         name = input("Znaku nie ma w bazie. Podaj imię: ")
         if name == "":
             display_error("Imię nie może być puste!")
         cursor.execute("INSERT INTO IMIONA (IMIE, ZNAK) VALUES (?, ?)", (name, qso_callsign))
         conn.commit()
-        print("Imię zostało dodane do bazy.")
+        logging.info(f"Dodano imię w bazie dla znaku {qso_callsign}")
+
+    console.print(Panel(Text("\nDodano!\n", justify="center", style="white"),
+                        style=get_color("light_blue"), title=f"{frame_title}O programie"))

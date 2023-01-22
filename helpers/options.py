@@ -4,13 +4,13 @@ from rich.text import Text
 import logging
 
 # File imports
-from config.setup_config import radio_conf, frame_title
+from config.setup_config import frame_title
 from helpers.colors import get_color
 
 console = Console()
-logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
-                                                                                              'levelname)s: %('
-                                                                                              'message)s')
+logging.basicConfig(filename='SL_Ham_Radio_Log.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                                   'levelname)s: %('
+                                                                                                   'message)s')
 
 
 def show_options():

@@ -2,7 +2,6 @@ from rich.console import Console
 import logging
 
 # File imports
-from helpers.get_today_or_yesterday import get_time
 from helpers.exit_handler import exit_program
 from helpers.options import show_options
 from modules.qso import register_qso
@@ -13,9 +12,10 @@ from modules.stats import show_stats
 from modules.about import show_about
 from helpers.greet_user import welcome
 
-logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
-                                                                                              'levelname)s: %('
-                                                                                              'message)s')
+logging.basicConfig(filename='SL_Ham_Radio_Log.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                                   'levelname)s: %('
+                                                                                                   'message)s')
+
 info = False
 console = Console()
 logging.info("Aplikacja została uruchomiona")
@@ -47,6 +47,3 @@ if __name__ == "__main__":
             exit_program(0)
         if choose == "?":
             info = False
-
-
-# WYMAGA REFAKTORYZACJI + DODANIE LOGGERA, DZIAŁA

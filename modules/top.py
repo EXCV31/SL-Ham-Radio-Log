@@ -7,7 +7,9 @@ from config.setup_config import frame_title
 from helpers.colors import get_color
 from helpers.clear_handler import clear_console
 from database.setup_db import cursor
+
 console = Console()
+
 
 def top_10_connections():
     clear_console()
@@ -18,6 +20,4 @@ def top_10_connections():
     results = "\n".join([f"{result[0]}: {result[1]}" for result in results])
 
     console.print(Panel(Text(f"\n{results}\n", justify="center", style="white"), style=get_color("light_blue"),
-    title=f"{frame_title}TOP 10 QSO"))
-
-# WYMAGA REFAKTORYZACJI + DODANIE LOGGERA, DZIAŁA
+                        title=f"{frame_title}TOP 10 QSO"))

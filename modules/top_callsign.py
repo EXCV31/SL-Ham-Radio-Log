@@ -7,7 +7,9 @@ from config.setup_config import frame_title
 from helpers.colors import get_color
 from database.setup_db import cursor
 from helpers.error_handler import display_error
+
 console = Console()
+
 
 def show_top_callsign():
     qso_callsign = input("\nPodaj znak swojego rozmówcy (pozostaw puste aby wyjść): ")
@@ -20,8 +22,7 @@ def show_top_callsign():
 
     if result:
         text = f"\n{result[0]}: {result[1]}\n"
-        console.print(Panel(Text(text, justify="center", style="white"), style=get_color("light_blue"), title=f"{frame_title}Ilość QSO"))
+        console.print(Panel(Text(text, justify="center", style="white"), style=get_color("light_blue"),
+                            title=f"{frame_title}Ilość QSO"))
     else:
         display_error("Nie znaleziono podanego znaku w bazie.")
-
-# WYMAGA REFAKTORYZACJI + DODANIE LOGGERA, DZIAŁA

@@ -1,16 +1,22 @@
 import sqlite3
-import os
+import logging
+
+logging.basicConfig(filename='SL_Ham_Radio.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                               'levelname)s: %('
+                                                                                               'message)s')
+
 
 def setup_connection_and_cursor():
     """
-    Setup database.
+    Setup database, and return conn and cursor object.
 
     Returns:
 
     """
-    base_dir = os.path.abspath(os.path.dirname(__file__))
-    # Set up sqlite
+
+    # Set up sqlite connection.
     conn = sqlite3.connect("database/radio_log.db")
+    logging.info("Nawiązano połączenie z bazą danych.")
     cursor = conn.cursor()
 
     return conn, cursor

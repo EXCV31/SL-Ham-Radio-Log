@@ -5,9 +5,9 @@ from rich.text import Text
 from helpers.colors import get_color
 from config.setup_config import frame_title
 
-logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
-                                                                                              'levelname)s: %('
-                                                                                              'message)s')
+logging.basicConfig(filename='SL_Ham_Radio.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                               'levelname)s: %('
+                                                                                               'message)s')
 console = Console()
 
 

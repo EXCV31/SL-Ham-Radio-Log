@@ -1,9 +1,10 @@
 import sys
 import logging
 from database.setup_db import conn
-logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
-                                                                                              'levelname)s: %('
-                                                                                              'message)s')
+
+logging.basicConfig(filename='SL_Ham_Radio.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
+                                                                                               'levelname)s: %('
+                                                                                               'message)s')
 
 
 def exit_program(exit_code):
@@ -16,7 +17,7 @@ def exit_program(exit_code):
 
     """
     logging.info("Zamykanie bazy danych...")
-    
+
     conn.close()
 
     logging.info("Wyjście z aplikacji")
