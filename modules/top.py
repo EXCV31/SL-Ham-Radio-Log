@@ -5,14 +5,12 @@ from rich.text import Text
 # File imports
 from config.setup_config import frame_title
 from helpers.colors import get_color
-from helpers.clear_handler import clear_console
 from database.setup_db import cursor
 
 console = Console()
 
 
 def top_10_connections():
-    clear_console()
     query = "SELECT ZNAK, COUNT(*) FROM QSO GROUP BY ZNAK ORDER BY COUNT(*) DESC LIMIT 10;"
     cursor.execute(query)
 

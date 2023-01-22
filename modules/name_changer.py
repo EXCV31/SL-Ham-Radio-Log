@@ -7,7 +7,6 @@ import logging
 from database.setup_db import cursor, conn
 from config.setup_config import frame_title
 from helpers.error_handler import display_error
-from helpers.clear_handler import clear_console
 from helpers.colors import get_color
 
 console = Console()
@@ -18,7 +17,6 @@ logging.basicConfig(filename='SL_Ham_Radio_Log.log', encoding='utf-8', level=log
 
 
 def change_or_add_name():
-    clear_console()
     console.rule(f"[{get_color('bold_orange')}] {frame_title}Zmień imię", )
 
     qso_callsign = input("\nPodaj znak swojego rozmówcy (pozostaw puste aby wyjść): ")
@@ -48,6 +46,6 @@ def change_or_add_name():
         cursor.execute("INSERT INTO IMIONA (IMIE, ZNAK) VALUES (?, ?)", (name, qso_callsign))
         conn.commit()
         logging.info(f"Dodano imię w bazie dla znaku {qso_callsign}")
-
+    print("")
     console.print(Panel(Text("\nDodano!\n", justify="center", style="white"),
-                        style=get_color("light_blue"), title=f"{frame_title}O programie"))
+                        style=get_color("light_blue"), title=f"{frame_title}Zmień imię"))
