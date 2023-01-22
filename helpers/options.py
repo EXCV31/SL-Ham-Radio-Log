@@ -28,6 +28,7 @@ def show_options():
                              "\n4. Zmień lub dodaj imię dla znaku"
                              "\n5. Statystyki"
                              "\n6. O programie"
-                             "\n7. Wyjście\n", justify="center", style="white"), style=get_color("light_blue"),
-                        title=frame_title))
+                             "\n7. Wyjście"
+                             "\n?. Pokaż to menu\n", justify="center", style="white"), style=get_color("light_blue"),
+                        title=f"{frame_title}Menu główne"))
     logging.info("Pokazano listę opcji do wyboru.")

@@ -7,10 +7,14 @@ import logging
 from database.setup_db import cursor, conn
 from config.setup_config import frame_title
 from helpers.error_handler import display_error
-
+from helpers.clear_handler import clear_console
+from helpers.colors import get_color
 console = Console()
 
 def change_or_add_name():
+    clear_console()
+    console.rule(f"[{get_color('bold_orange')}] {frame_title}Zmień imię", )
+
     qso_callsign = input("\nPodaj znak swojego rozmówcy (pozostaw puste aby wyjść): ")
     if qso_callsign == "":
         return

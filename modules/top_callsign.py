@@ -19,8 +19,8 @@ def show_top_callsign():
     result = cursor.fetchone()
 
     if result:
-        text = "\nIlość QSO z znakiem {}: {}.\n".format(result[0], result[1])
-        console.print(Panel(Text(text, justify="center", style="white"), style=get_color("light_blue"), title=frame_title))
+        text = f"\n{result[0]}: {result[1]}\n"
+        console.print(Panel(Text(text, justify="center", style="white"), style=get_color("light_blue"), title=f"{frame_title}Ilość QSO"))
     else:
         display_error("Nie znaleziono podanego znaku w bazie.")
 

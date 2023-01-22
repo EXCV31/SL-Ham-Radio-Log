@@ -32,5 +32,7 @@ def get_color(color):
             return "bold #2070b2"
         case "blue":
             return "#2070b2"
+        case "bold_white":
+            return "bold #ffffff"
         case "white":
             return "#ffffff"

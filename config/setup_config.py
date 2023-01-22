@@ -37,7 +37,7 @@ def parse_config():
 
     # Setup frame title: display <orange>SL Ham Radio Log <white>- <red>{callsign}
     frame_title = f"[{get_color('bold_orange')}]SL Ham Radio Log [{get_color('white')}]" \
-                  f"- [{get_color('bold_red')}]{radio_conf['CALLSIGN']}"
+                  f"- [{get_color('bold_red')}]{radio_conf['CALLSIGN']} [{get_color('bold_white')}]- [{get_color('blue')}]"
 
     return radio_conf, frame_title
 

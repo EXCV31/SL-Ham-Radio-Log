@@ -22,5 +22,5 @@ def display_error(text):
     """
     print("")
     console.print(
-        Panel(Text(f"\n{text}\n", justify="center", style="white"), style=get_color("red"), title=frame_title))
+        Panel(Text(f"\n{text}\n", justify="center", style="white"), style=get_color("red"), title=f"{frame_title}Błąd"))
     logging.error(text)

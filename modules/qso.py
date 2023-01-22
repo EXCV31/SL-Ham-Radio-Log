@@ -8,6 +8,7 @@ from database.setup_db import cursor, conn
 from helpers.colors import get_color
 from config.setup_config import frame_title
 from helpers.get_today_or_yesterday import get_time
+from helpers.clear_handler import clear_console
 from helpers.bands import match_band
 from helpers.modulations import match_modulation
 
@@ -22,7 +23,13 @@ def register_qso():
     The function is responsible for registering QSO by putting it inside database.
     Returns:
     """
+    cleared = False
     while True:
+        if cleared is False:
+            clear_console()
+            console.rule(f"[{get_color('bold_orange')}] {frame_title}Zarejestruj QSO", )
+        cleared = True
+        
         qso_callsign = input("\nPodaj znak swojego rozmówcy (pozostaw puste aby wyjść): ")
         if qso_callsign == "":
             return
@@ -41,7 +48,7 @@ def register_qso():
 
         console.print("", Panel(Text(f"\nWybrano znak: {qso_callsign}"
                                     f"\nImię rozmówcy: {name}\n", justify="center", style="white"),
-                                style=get_color("light_blue"), title=frame_title),
+                                style=get_color("light_blue"), title=f"{frame_title}Zarejestruj QSO"),
                     "")
         logging.info(f"Wybrano znak: {qso_callsign}")
 
@@ -58,7 +65,7 @@ def register_qso():
                                 "10. 6m   50.000 MHz - 52.000 MHz\n"
                                 "11. 2m    144.000 MHz - 146.000 MHz\n"
                                 "12. 70cm   430.000 MHz - 440.000 MHz\n", justify="center", style="white"), style=get_color("light_blue")
-                            , title=frame_title))
+                            , title=f"{frame_title}Zarejestruj QSO"))
         band = input("\nWybierz numer pasma, lub wpisz własne: ")
 
         band = match_band(band)
@@ -73,7 +80,7 @@ def register_qso():
                         "7. DMR\n"
                         "8. FUSION\n"
                         "9. D-STAR\n", justify="center", style="white"), style=get_color("light_blue")
-                    , title=frame_title))
+                    , title=f"{frame_title}Zarejestruj QSO"))
         modulation = input("\nWybierz numer modulacji, lub wpisz własną: ")
 
         modulation = match_modulation(modulation)
@@ -91,6 +98,6 @@ def register_qso():
         logging.info("Zacommitowano zmiany w bazie danych.")
 
         console.print("", Panel(Text(f"\nDodano!\n", justify="center", style="white"),
-                                style=get_color("green"), title=frame_title), "")
+                                style=get_color("green"), title=f"{frame_title}Zarejestruj QSO"))
         
 # WYMAGA REFAKTORYZACJI, DZIAŁA, NIE PRZETESTOWANE W 100%
