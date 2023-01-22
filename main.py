@@ -10,6 +10,7 @@ from modules.top import top_10_connections
 from modules.top_callsign import show_top_callsign
 from modules.name_changer import change_or_add_name
 from modules.stats import show_stats
+from modules.about import show_about
 from helpers.greet_user import welcome
 
 logging.basicConfig(filename='czasoinator.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s] %('
@@ -41,10 +42,8 @@ if __name__ == "__main__":
         if choose == str(5):
             show_stats()
         if choose == str(6):
-            pass
+            show_about()
         if choose == str(7):
-            show_stats()
-        if choose == str(8):
             exit_program(0)
         if choose == "?":
             info = False
